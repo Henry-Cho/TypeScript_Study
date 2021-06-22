@@ -4,14 +4,9 @@
 
 type Command = 'up' | 'down' | 'left' | 'right';
 
-type Position = {
-    x: number;
-    y: number;
-}
+const position = {x: 0, y: 0};
 
-const position: Position = {x: 0, y: 0};
-
-function move(cmd : Command) : Position {
+function move(cmd : Command) {
     if (cmd === "up") {
         position.y += 1;
     }
@@ -23,6 +18,9 @@ function move(cmd : Command) : Position {
     }
     else if (cmd === "right") {
         position.x += 1;
+    }
+    else {
+        return new Error("Error");
     }
     return position;
 }
